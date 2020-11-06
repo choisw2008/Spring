@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+	<bean id ="koreaTire" class="com.edu.mycar05.KoreaTire"/>
+	<bean id="americaTire" class="com.edu.mycar05.AmericaTire"/>
+	
+	<bean id="car" class="com.edu.mycar05.Car">
+	<!--property name는 매서드를 말한다.  -->
+	<property name="tire" ref="americaTire"></property>
+	<!-- property name="tire" ref="americaTire"></property> -->
+	</bean>
+
+</beans>
