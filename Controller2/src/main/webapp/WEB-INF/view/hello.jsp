@@ -7,6 +7,6 @@
 </head>
 <body>
 	<h1>안녕하세요 감사해요</h1>
-	<button class="btn btn-primary" onclick="location.href='/log'">글쓰기</button>
+	<button class="btn btn-primary" onclick="location.href='/SignUp'">회원가입</button>
 </body>
 </html>

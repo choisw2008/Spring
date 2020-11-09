@@ -11,8 +11,8 @@ public class CommonController {
 		return "hello";
 	}
 	
-	@GetMapping("/log")
+	@GetMapping("/SignUp")
 	public String log() {
-		return "log";
+		return "/SignUp/log";
 	}
 }
