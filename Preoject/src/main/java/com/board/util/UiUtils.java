@@ -11,10 +11,11 @@ import com.board.constant.Method;
 @Controller
 public class UiUtils {
 
-	public String showMessageWithRedirect(@RequestParam(value = "message", required = false) String message,
-										  @RequestParam(value = "redirectUri", required = false) String redirectUri,
-										  @RequestParam(value = "method", required = false) Method method,
-										  @RequestParam(value = "params", required = false) Map<String, Object> params, Model model) {
+	public String showMessageWithRedirect(
+			@RequestParam(value = "message", required = false) String message,
+			@RequestParam(value = "redirectUri", required = false) String redirectUri,
+			@RequestParam(value = "method", required = false) Method method,
+			@RequestParam(value = "params", required = false) Map<String, Object> params, Model model) {
 
 		model.addAttribute("message", message);
 		model.addAttribute("redirectUri", redirectUri);

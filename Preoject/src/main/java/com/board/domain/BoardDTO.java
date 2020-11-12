@@ -1,44 +1,33 @@
 package com.board.domain;
 
-import java.time.LocalDateTime;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
+public class BoardDTO extends CommonDTO {
 
-public class BoardDTO {
-	/** ¹øÈ£ (PK) */
+	/** ë²ˆí˜¸ (PK) */
 	private Long idx;
 
-	/** Á¦¸ñ */
+	/** ì œëª© */
 	private String title;
 
-	/** ³»¿ë */
+	/** ë‚´ìš© */
 	private String content;
 
-	/** ÀÛ¼ºÀÚ */
+	/** ì‘ì„±ì */
 	private String writer;
 
-	/** Á¶È¸ ¼ö */
+	/** ì¡°íšŒ ìˆ˜ */
 	private int viewCnt;
 
-	/** °øÁö ¿©ºÎ */
+	/** ê³µì§€ ì—¬ë¶€ */
 	private String noticeYn;
 
-	/** ºñ¹Ğ ¿©ºÎ */
+	/** ë¹„ë°€ ì—¬ë¶€ */
 	private String secretYn;
 
-	/** »èÁ¦ ¿©ºÎ */
-	private String deleteYn;
-
-	/** µî·ÏÀÏ */
-	private LocalDateTime insertTime;
-
-	/** ¼öÁ¤ÀÏ */
-	private LocalDateTime updateTime;
-
-	/** »èÁ¦ÀÏ */
-	private LocalDateTime deleteTime;
-
-	
-	
 	public Long getIdx() {
 		return idx;
 	}
@@ -94,46 +83,6 @@ public class BoardDTO {
 	public void setSecretYn(String secretYn) {
 		this.secretYn = secretYn;
 	}
-
-	public String getDeleteYn() {
-		return deleteYn;
-	}
-
-	public void setDeleteYn(String deleteYn) {
-		this.deleteYn = deleteYn;
-	}
-
-	public LocalDateTime getInsertTime() {
-		return insertTime;
-	}
-
-	public void setInsertTime(LocalDateTime insertTime) {
-		this.insertTime = insertTime;
-	}
-
-	public LocalDateTime getUpdateTime() {
-		return updateTime;
-	}
-
-	public void setUpdateTime(LocalDateTime updateTime) {
-		this.updateTime = updateTime;
-	}
-
-	public LocalDateTime getDeleteTime() {
-		return deleteTime;
-	}
-
-	public void setDeleteTime(LocalDateTime deleteTime) {
-		this.deleteTime = deleteTime;
-	}
-
+	
 	
 }
-
-
-
-
-
-
-
-
