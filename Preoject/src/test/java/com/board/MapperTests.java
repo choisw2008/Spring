@@ -1,11 +1,8 @@
 package com.board;
 
-import java.util.List;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.util.CollectionUtils;
 
 import com.board.domain.BoardDTO;
 import com.board.mapper.BoardMapper;
@@ -14,40 +11,42 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @SpringBootTest
 class MapperTests {
-	
+
 	@Autowired
 	private BoardMapper boardMapper;
-	
-	@Test
-	public void testOfInsert() {
-		BoardDTO params = new BoardDTO();
-		params.setTitle("1¹ø °Ô½Ã±Û Á¦¸ñ");
-		params.setContent("1¹ø °Ô½Ã±Û ³»¿ë");
-		params.setWriter("Å×½ºÅÍ");
 
-		int result = boardMapper.insertBoard(params);
-		System.out.println("°á°ú´Â " + result + "ÀÔ´Ï´Ù.");
+	@Test
+	public void testMultipleInsert() {
+		for (int i = 2; i <= 50; i++) {
+			BoardDTO params = new BoardDTO();
+			params.setTitle(i + "ë²ˆ ê²Œì‹œê¸€ ì œëª©");
+			params.setContent(i + "ë²ˆ ê²Œì‹œê¸€ ë‚´ìš©");
+			params.setWriter(i + "ë²ˆ ê²Œì‹œê¸€ ìž‘ì„±ìž");
+			boardMapper.insertBoard(params);
+		}
 	}
-	
+
 	@Test
 	public void testOfSelectDetail() {
 		BoardDTO board = boardMapper.selectBoardDetail((long) 1);
 		try {
 			String boardJson = new ObjectMapper().writeValueAsString(board);
-			System.out.println("===============");
+
+			System.out.println("=========================");
 			System.out.println(boardJson);
-			System.out.println("===============");
+			System.out.println("=========================");
+
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Test
 	public void testOfUpdate() {
 		BoardDTO params = new BoardDTO();
-		params.setTitle("1¹ø °Ô½Ã±Û Á¦¸ñÀ» ¼öÁ¤ÇÕ´Ï´Ù.");
-		params.setContent("1¹ø °Ô½Ã±Û ³»¿ëÀ» ¼öÁ¤ÇÕ´Ï´Ù.");
-		params.setWriter("È«±æµ¿");
+		params.setTitle("1ë²ˆ ê²Œì‹œê¸€ ì œëª©ì„ ìˆ˜ì •í•©ë‹ˆë‹¤.");
+		params.setContent("1ë²ˆ ê²Œì‹œê¸€ ë‚´ìš©ì„ ìˆ˜ì •í•©ë‹ˆë‹¤.");
+		params.setWriter("í™ê¸¸ë™");
 		params.setIdx((long) 1);
 
 		int result = boardMapper.updateBoard(params);
@@ -65,7 +64,7 @@ class MapperTests {
 			}
 		}
 	}
-	
+
 	@Test
 	public void testOfDelete() {
 		int result = boardMapper.deleteBoard((long) 1);
@@ -83,32 +82,22 @@ class MapperTests {
 			}
 		}
 	}
-	
-	@Test
-	public void testMultipleInsert() {
-		for (int i = 2; i <= 50; i++) {
-			BoardDTO params = new BoardDTO();
-			params.setTitle(i + "¹ø °Ô½Ã±Û Á¦¸ñ");
-			params.setContent(i + "¹ø °Ô½Ã±Û ³»¿ë");
-			params.setWriter(i + "¹ø °Ô½Ã±Û ÀÛ¼ºÀÚ");
-			boardMapper.insertBoard(params);
-		}
-	}
-	
-	@Test
-	public void testSelectList() {
-		int boardTotalCount = boardMapper.selectBoardTotalCount();
-		if (boardTotalCount > 0) {
-			List<BoardDTO> boardList = boardMapper.selectBoardList();
-			if (CollectionUtils.isEmpty(boardList) == false) {
-				for (BoardDTO board : boardList) {
-					System.out.println("=========================");
-					System.out.println(board.getTitle());
-					System.out.println(board.getContent());
-					System.out.println(board.getWriter());
-					System.out.println("=========================");
-				}
-			}
-		}
-	}
+
+//	@Test
+//	public void testSelectList() {
+//		int boardTotalCount = boardMapper.selectBoardTotalCount();
+//		if (boardTotalCount > 0) {
+//			List<BoardDTO> boardList = boardMapper.selectBoardList();
+//			if (CollectionUtils.isEmpty(boardList) == false) {
+//				for (BoardDTO board : boardList) {
+//					System.out.println("=========================");
+//					System.out.println(board.getTitle());
+//					System.out.println(board.getContent());
+//					System.out.println(board.getWriter());
+//					System.out.println("=========================");
+//				}
+//			}
+//		}
+//	}
+
 }
