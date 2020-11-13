@@ -31,7 +31,7 @@
 			<label>작성날짜</label>
 			<p>${detail.reg_date}</p>
 		</div>
-		<div class=:form-group">
+		<div class="form-group">
 			<label>첨부파일</label>
 			<p><a href="/board/fileDown/${files.bno}">${files.fileOriName}</a></p>
 		</div>
