@@ -227,9 +227,10 @@ public class BoardController {
 		model.addAttribute("list", mBoardService.boardListService());
 		return "/board/normal";
 	}
-	
-
-	
+	@RequestMapping("/Main")
+	private String Mainpage() {
+		return "/board/Main";
+	}
 }
 
 

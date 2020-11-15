@@ -3,7 +3,7 @@
 <%@ taglib prefix="c"   		uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" 		uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="layoutTag" 	tagdir="/WEB-INF/tags" %>
-<layoutTag:layout>
+<layoutTag:layout2>
 
 <!DOCTYPE html>
 <html>
@@ -83,7 +83,7 @@ $(document).ready(function() {
 
 </body>
 </html>
-</layoutTag:layout>
+</layoutTag:layout2>
 
 
 
